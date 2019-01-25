@@ -1,0 +1,398 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block content %}
+<main id="content" role="main">
+    <div id="SVGwave1BottomSMShape" class="svg-preloader">
+        <!-- CTA Section -->
+        <div class="bg-light">
+          <div class="container space-2 space-md-3">
+            <div class="w-md-80 w-lg-50 text-center mx-md-auto">
+              <div class="mb-4">
+                <span class="btn btn-lg btn-icon btn-white shadow-sm text-primary rounded-circle">
+                  <span class="btn-icon__inner">
+                    <img src="{% static 'img/uploads/logo.png' %}" alt="Logo" style="width: 70px;">
+                  </span>
+                </span>
+              </div>
+  
+              <div class="mb-4">
+                <h2 class="text-primary">
+                  <strong class="font-weight-semi-bold">A INITIATIVE OF <u>DREAM DESIGNERS</u> !</strong> 
+                </h2>
+                <p>Dstudy helps you learn what is needed.</p>
+              </div>
+              {% if user.is_authenticated %}
+                <a class="btn btn-primary btn-wide btn-pill transition-3d-hover" href="#next">See More</a>
+              {% else %}
+              <a class="btn btn-primary btn-wide btn-pill transition-3d-hover" href="#">Get Started</a>
+              {% endif %}
+              
+            </div>
+          </div>
+        </div>
+        <!-- End CTA Section -->
+  
+        <!-- SVG Bottom Shape -->
+        <figure class="position-absolute right-0 bottom-0 left-0" hidden="hidden">
+          <img class="js-svg-injector" src="{% static 'img/uploads/bg_wave.png' %}" alt="Image Description"
+                 data-parent="#SVGwave1BottomSMShape" width="100%" height="140" >
+        </figure>
+        <!-- End SVG Bottom Shape -->
+      </div>
+  
+    <!-- Contacts Info Section -->
+    <div class="clearfix space-2">
+      <div class="row no-gutters">
+        <div class="col-sm-6 col-lg-4 u-ver-divider u-ver-divider--none-lg">
+          <!-- Contacts Info -->
+          <div class="text-center py-5">
+            <figure id="icon8" class="svg-preloader ie-height-56 max-width-8 mx-auto mb-3">
+              <img class="js-svg-injector" src="{% static 'img/uploads/address.png' %}" alt="SVG"
+                   data-parent="#icon8">
+            </figure>
+            <h2 class="h6 mb-0">Address</h2>
+            <p class="mb-0">Nashik</p>
+          </div>
+          <!-- End Contacts Info -->
+        </div>
+  
+        <div class="col-sm-6 col-lg-4 u-ver-divider u-ver-divider--none-lg">
+          <!-- Contacts Info -->
+          <div class="text-center py-5">
+            <figure id="icon15" class="svg-preloader ie-height-56 max-width-8 mx-auto mb-3">
+              <img class="js-svg-injector" src="{% static 'img/uploads/email.png' %}" alt="SVG"
+                   data-parent="#icon15">
+            </figure>
+            <h3 class="h6 mb-0">Email</h3>
+            <p class="mb-0"><a href="mailto:support@ddsweb.in">support@ddsweb.in</a></p>
+          </div>
+          <!-- End Contacts Info -->
+        </div>
+  
+        <div class="col-sm-6 col-lg-4 u-ver-divider u-ver-divider--none-lg">
+          <!-- Contacts Info -->
+          <div class="text-center py-5">
+            <figure id="icon16" class="svg-preloader ie-height-56 max-width-8 mx-auto mb-3">
+              <img class="js-svg-injector" src="{% static 'img/uploads/call.png' %}" alt="SVG"
+                   data-parent="#icon16">
+            </figure>
+            <h3 class="h6 mb-0">Phone Number</h3>
+            <p class="mb-0"><a href="tel:+91 (9421) 487-587">+91 (9421) 487-587</a></p>
+          </div>
+          <!-- End Contacts Info -->
+        </div>
+      </div>
+    </div>
+    <!-- End Contacts Info Section -->
+  
+    <hr class="my-0">
+  
+    <!-- Contact Form Section -->
+    <div class="container space-2 space-md-3">
+      <!-- Title -->
+      <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-9">
+        <span class="btn btn-xs btn-soft-success btn-pill mb-2">Leave a Message</span>
+        <h2 class="text-primary font-weight-normal">Tell us about <span class="font-weight-semi-bold">yourself</span></h2>
+        <p>Whether you have questions or you would just like to say hello, contact us.</p>
+      </div>
+      <!-- End Title -->
+  
+      <div class="w-lg-80 mx-auto">
+        <!-- Contacts Form -->
+        <form class="js-validate" action="{% url 'enquiry' %}" method="POST">{% csrf_token %}
+          <div class="row">
+  
+            {% if user.is_authenticated %}
+              <input type="text" class="form-control" name="user_id" value="{{ user.id }}" hidden>
+            {% else %}
+              <input type="text" class="form-control" name="user_id" value="0" hidden>
+            {% endif %}
+  
+            <!-- Input -->
+            <div class="col-sm-6 mb-6">
+              <div class="js-form-message">
+                <label class="form-label">
+                  Your name
+                  <span class="text-danger">*</span>
+                </label>
+  
+                <input type="text" class="form-control" name="name" placeholder="Your Name" aria-label="Your Name" required
+                       data-msg="Please enter your name."
+                       data-error-class="u-has-error"
+                       data-success-class="u-has-success"
+                       {% if user.is_authenticated %} value="{{ user.first_name }}&nbsp;{{ user.last_name }}" {% endif %}>
+              </div>
+            </div>
+            <!-- End Input -->
+  
+            <!-- Input -->
+            <div class="col-sm-6 mb-6">
+              <div class="js-form-message">
+                <label class="form-label">
+                  Your email address
+                  <span class="text-danger">*</span>
+                </label>
+  
+                <input type="email" class="form-control" name="email" placeholder="youremail@example.com" aria-label="youremail@example.com" required
+                       data-msg="Please enter a valid email address."
+                       data-error-class="u-has-error"
+                       data-success-class="u-has-success"
+                       {% if user.is_authenticated %} value="{{ user.email }}" {% endif %} >
+              </div>
+            </div>
+            <!-- End Input -->
+  
+            <div class="w-100"></div>
+  
+            <!-- Input -->
+            <div class="col-sm-6 mb-6">
+              <div class="js-form-message">
+                <label class="form-label">
+                  Subject
+                  <span class="text-danger">*</span>
+                </label>
+  
+                <input type="text" class="form-control" name="subject" placeholder="Registration Issue" aria-label="Registration Issue" required
+                       data-msg="Please enter a subject."
+                       data-error-class="u-has-error"
+                       data-success-class="u-has-success">
+              </div>
+            </div>
+            <!-- End Input -->
+  
+            <!-- Input -->
+            <div class="col-sm-6 mb-6">
+              <div class="js-form-message">
+                <label class="form-label">
+                  Your Phone Number
+                  <span class="text-danger">*</span>
+                </label>
+  
+                <input type="number" class="form-control" name="phone" placeholder="91-9421-487-587" aria-label="91-9421-487-587" required
+                       data-msg="Please enter a valid phone number."
+                       data-error-class="u-has-error"
+                       data-success-class="u-has-success"
+                       {% if user.is_authenticated %} value="{{ user.profile.mobile }}" {% endif %}>
+              </div>
+            </div>
+            <!-- End Input -->
+          </div>
+  
+          <!-- Input -->
+          <div class="mb-6">
+              <div class="js-form-message">
+                <label class="form-label">
+                  Type
+                  <span class="text-danger">*</span>
+                </label>
+  
+                <select class="form-control" name="type" required
+                data-msg="Please enter a valid phone number."
+                data-error-class="u-has-error"
+                data-success-class="u-has-success" >
+                    <option value="Not Specific">Not Specific</option>
+                    <option value="Feedback">Feedback</option>
+                    <option value="Reporting Problem">Reporting Problem</option>
+                    <option value="Contact">Contact</option>
+                  </select>
+              </div>
+            </div>
+            <!-- End Input -->
+  
+          <!-- Input -->
+          <div class="js-form-message mb-6">
+            <label class="form-label">
+              How can we help you?
+              <span class="text-danger">*</span>
+            </label>
+  
+            <div class="input-group">
+              <textarea class="form-control" rows="4" name="message" placeholder="Hi there, I would like to ..." aria-label="Hi there, I would like to ..." required
+                        data-msg="Please enter a reason."
+                        data-error-class="u-has-error"
+                        data-success-class="u-has-success"></textarea>
+            </div>
+          </div>
+          <!-- End Input -->
+  
+          
+  
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-wide transition-3d-hover mb-4">Submit</button>
+            <p class="small">We'll get back to you in 1-2 business days.</p>
+          </div>
+        </form>
+        <!-- End Contacts Form -->
+      </div>
+    </div>
+    <!-- End Contact Form Section -->
+  
+    
+  
+    <!-- Google Map -->
+    <div class="container-fluid space-bottom-1">
+      <div id="gMapMultipleMarkers" class="embed-responsive embed-responsive-21by9 u-gmap-interactive min-height-450"
+           data-type="custom"
+           data-lat="37.4040344"
+           data-lng="-122.0289704"
+           data-zoom="13"
+           data-pin="true"
+           data-multiple-markers="true"
+           data-styles='[[
+            "", "", [
+              {"saturation": -100},
+              {"lightness": 50},
+              {"visibility": "simplified"}
+            ]],[
+              "",
+              "geometry", [
+                {"color": "#f3f3f3"}
+            ]],[
+              "road", "", [
+                {"color": "#ffffff"},
+                {"lightness": 100}
+            ]],[
+              "road",
+              "labels.text.fill", [
+                {"color": "#ffffff"},
+                {"lightness": -50}]
+            ],[
+              "water", "", [
+                {"color": "#377dff"}
+            ]]
+           ]'
+           data-markers-locations='[[
+              "../../assets/img/map-markers/map-marker1.png",
+              "Twisters Sports",
+              37.4037277, -122.0093084,
+              "../../assets/img/150x80/img1.jpg",
+              "Image description",
+              "17:48, April 27, 2017",
+              "United States",
+              "Twisters Sports"
+            ],[
+              "../../assets/img/map-markers/map-marker5.png",
+              "Equinix Data Center",
+              37.4011793, -122.013562,
+              "../../assets/img/150x80/img5.jpg",
+              "Image description",
+              "17:30, May 21, 2017",
+              "United States",
+              "Equinix Data Center"
+            ],[
+              "../../assets/img/map-markers/map-marker2.png",
+              "Amazon Lab126",
+              37.4093023, -122.0385558,
+              "../../assets/img/150x80/img2.jpg",
+              "Image description",
+              "11:48, June 3, 2017",
+              "United States",
+              "Amazon Lab126"
+            ],[
+              "../../assets/img/map-markers/map-marker3.png",
+              "Google Building TC4",
+              37.4061573, -122.0400798,
+              "../../assets/img/150x80/img3.jpg",
+              "Image description",
+              "9:48, January 1, 2017",
+              "United States",
+              "Google Building TC4"
+            ],[
+              "../../assets/img/map-markers/map-marker4.png",
+              "Sheraton Sunnyvale",
+              37.4040344, -122.0289704,
+              "../../assets/img/150x80/img4.jpg",
+              "Image description",
+              "9:48, January 1, 2017",
+              "United States",
+              "Sheraton Sunnyvale"
+            ]]'></div>
+    </div>
+    <!-- End Google Map -->
+  </main>
+{% endblock %}
+{% block secondary %}
+  <!-- Go to Top -->
+  <a class="js-go-to u-go-to" href="#"
+  data-position='{"bottom": 15, "right": 15 }'
+  data-type="fixed"
+  data-offset-top="400"
+  data-compensation="#header"
+  data-show-effect="slideInUp"
+  data-hide-effect="slideOutDown">
+  <span class="fas fa-arrow-up u-go-to__inner"></span>
+</a>
+<!-- End Go to Top -->
+  
+<!-- JS Plugins Init. -->
+<script>
+  $(window).on('load', function () {
+    // initialization of HSMegaMenu component
+    $('.js-mega-menu').HSMegaMenu({
+      event: 'hover',
+      pageContainer: $('.container'),
+      breakpoint: 767.98,
+      hideTimeOut: 0
+    });
+
+    // initialization of svg injector module
+    $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
+  });
+
+  $(document).on('ready', function () {
+    // initialization of header
+    $.HSCore.components.HSHeader.init($('#header'));
+
+    // initialization of unfold component
+    $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+      afterOpen: function () {
+        $(this).find('input[type="search"]').focus();
+      }
+    });
+
+    // initialization of malihu scrollbar
+    $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+
+    // initialization of forms
+    $.HSCore.components.HSFocusState.init();
+
+    // initialization of form validation
+    $.HSCore.components.HSValidation.init('.js-validate', {
+      rules: {
+        confirmPassword: {
+          equalTo: '#signupPassword'
+        }
+      }
+    });
+
+    // initialization of show animations
+    $.HSCore.components.HSShowAnimation.init('.js-animation-link');
+
+    // initialization of fancybox
+    $.HSCore.components.HSFancyBox.init('.js-fancybox');
+
+    // initialization of text animation (typing)
+    var typed = new Typed(".u-text-animation.u-text-animation--typing", {
+      strings: ["study resources.", "courses.", "easy tips."],
+      typeSpeed: 60,
+      loop: true,
+      backSpeed: 25,
+      backDelay: 1500
+    });
+
+    // initialization of slick carousel
+    $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+
+    // initialization of go to
+    $.HSCore.components.HSGoTo.init('.js-go-to');
+  });
+
+  setTimeout(fade_out, 5000);
+  function fade_out() {
+    $("#message").fadeOut().empty();
+  }
+
+  
+
+</script>
+{% endblock %}

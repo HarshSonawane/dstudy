@@ -1,0 +1,341 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+<h1>{% trans "Sign In" %}</h1>
+
+{% get_providers as socialaccount_providers %}
+
+{% if socialaccount_providers %}
+<p>{% blocktrans with site.name as site_name %}Please sign in with one
+of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+
+<div class="socialaccount_ballot">
+
+  <ul class="socialaccount_providers">
+    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+  </ul>
+
+  <div class="login-or">{% trans 'or' %}</div>
+
+</div>
+
+{% include "socialaccount/snippets/login_extra.html" %}
+
+{% else %}
+<p>{% blocktrans %}If you have not created an account yet, then please
+<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+{% endif %}
+
+<form class="login" method="POST" action="{% url 'account_login' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+</form>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+<form class="js-validate mt-5" method='POST' id="signup_form" action="{% url 'account_signup' %}">{% csrf_token %}
+      
+        {{ form|crispy }}
+
+        <div class="js-form-message mb-5">
+          <div class="custom-control custom-checkbox d-flex align-items-center text-muted">
+            <input type="checkbox" class="custom-control-input" id="termsCheckbox" name="termsCheckbox" required
+                   data-msg="Please accept our Terms and Conditions."
+                   data-error-class="u-has-error"
+                   data-success-class="u-has-success">
+            <label class="custom-control-label" for="termsCheckbox">
+              <small>
+                I agree to the
+                <a class="link-muted" href="#">Terms and Conditions</a>
+              </small>
+            </label>
+          </div>
+        </div>
+        <!-- End Checkbox -->
+
+        <!-- Button -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary btn-wide transition-3d-hover mb-4">Submit</button>
+          <p class="small">We'll get back to you in 1-2 working days.</p>
+        </div>
+        <!-- End Button -->
+      </form>
+
+
+      ### base user header
+
+      <main id="content" role="main">
+      <!-- Breadcrumb Section -->
+      <div class="bg-primary">
+        <div class="container space-top-1 pb-3">
+          <div class="row">
+            <div class="col-lg-5 order-lg-2 text-lg-right mb-4 mb-lg-0">
+              <div class="d-flex d-lg-inline-block justify-content-between justify-content-lg-end align-items-center align-items-lg-start">
+                <!-- Breadcrumb -->
+                <ol class="breadcrumb breadcrumb-white breadcrumb-no-gutter mb-0">
+                  <li class="breadcrumb-item"><a class="breadcrumb-link" href="https://htmlstream.com/preview/front-v2.1/html/home/index.html">Home</a></li>
+                  <li class="breadcrumb-item"><a class="breadcrumb-link" href="dashboard.html">Account</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                </ol>
+                <!-- End Breadcrumb -->
+  
+                <!-- Breadcrumb Nav Toggle Button -->
+                <div class="d-lg-none">
+                  <button type="button" class="navbar-toggler btn u-hamburger u-hamburger--white"
+                          aria-label="Toggle navigation"
+                          aria-expanded="false"
+                          aria-controls="breadcrumbNavBar"
+                          data-toggle="collapse"
+                          data-target="#breadcrumbNavBar">
+                    <span id="breadcrumbHamburgerTrigger" class="u-hamburger__box">
+                      <span class="u-hamburger__inner"></span>
+                    </span>
+                  </button>
+                </div>
+                <!-- End Breadcrumb Nav Toggle Button -->
+              </div>
+            </div>
+  
+            <div class="col-lg-7 order-lg-1">
+              <!-- User Info -->
+              <div class="media d-block d-sm-flex align-items-sm-center">
+                <div class="u-lg-avatar position-relative mb-3 mb-sm-0 mr-3">
+                  <img class="img-fluid rounded-circle" src="{{ user.profile.image.url }}" alt="Profile">
+                  <span class="badge badge-md badge-outline-success badge-pos badge-pos--bottom-right rounded-circle">
+                    <span class="fas fa-check"></span>
+                  </span>
+                </div>
+                <div class="media-body">
+                  <h1 class="h3 text-white font-weight-medium mb-1">{{ user.first_name }}&nbsp;{{ user.last_name }}</h1>
+                  <span class="d-block text-white">{{ user.email }}</span>
+                </div>
+              </div>
+              <!-- End User Info -->
+            </div>
+          </div>
+        </div>
+  
+        <div class="container space-bottom-1 space-bottom-lg-0">
+          <div class="d-lg-flex justify-content-lg-between align-items-lg-center">
+            <!-- Navbar -->
+            <div class="u-header u-header-left-aligned-nav u-header--bg-transparent-lg u-header--white-nav-links z-index-4">
+              <div class="u-header__section bg-transparent">
+                <nav class="js-breadcrumb-menu navbar navbar-expand-lg u-header__navbar u-header__navbar--no-space">
+                  <div id="breadcrumbNavBar" class="collapse navbar-collapse u-header__navbar-collapse">
+                    <ul class="navbar-nav u-header__navbar-nav">
+                      <!-- General -->
+                      <li class="nav-item hs-has-sub-menu u-header__nav-item"
+                          data-event="hover"
+                          data-animation-in="slideInUp"
+                          data-animation-out="fadeOut">
+                        <a id="generalDropdown" class="nav-link u-header__nav-link u-header__nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="generalDropdownMenu">
+                          General
+                        </a>
+  
+                        <ul id="generalDropdownMenu" class="hs-sub-menu u-header__sub-menu u-header__sub-menu--spacer" style="min-width: 230px;" aria-labelledby="generalDropdown">
+                          <li><a class="nav-link u-header__sub-menu-nav-link" href="{% url 'index' %}">Profile</a></li>
+                          <li><a class="nav-link u-header__sub-menu-nav-link" href="{% url 'profile' %}">Edit Profile</a></li>
+                          <li><a class="nav-link u-header__sub-menu-nav-link" href="{% url 'index' %}">My Exams</a></li>
+                          <li><a class="nav-link u-header__sub-menu-nav-link" href="{% url 'index' %}">Projects</a></li>
+                          <li><a class="nav-link u-header__sub-menu-nav-link" href="{% url 'index' %}">Members</a></li>
+                        </ul>
+                      </li>
+                      <!-- General -->
+  
+                      <!-- Account Settings -->
+                      <li class="nav-item hs-has-sub-menu u-header__nav-item"
+                          data-event="hover"
+                          data-animation-in="slideInUp"
+                          data-animation-out="fadeOut">
+                        <a id="accountSettingsDropdown" class="nav-link u-header__nav-link u-header__nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="accountSettingsDropdownMenu">
+                          Account settings
+                        </a>
+  
+                        <ul id="accountSettingsDropdownMenu" class="hs-sub-menu u-header__sub-menu u-header__sub-menu--spacer" style="min-width: 230px;" aria-labelledby="accountSettingsDropdown">
+                          <li><a class="nav-link u-header__sub-menu-nav-link" href="{% url 'edit_profile' %}">Edit profile</a></li>
+                          <li><a class="nav-link u-header__sub-menu-nav-link" href="{% url 'change_password' %}">Change password</a></li>
+                          <li><a class="nav-link u-header__sub-menu-nav-link" href="{% url 'notifications' %}">Notifications</a></li>
+                        </ul>
+                      </li>
+                      <!-- Account Settings -->
+  
+                      <!-- Billing -->
+                      <li class="nav-item hs-has-sub-menu u-header__nav-item"
+                          data-event="hover"
+                          data-animation-in="slideInUp"
+                          data-animation-out="fadeOut">
+                        <a id="billingDropdown" class="nav-link u-header__nav-link u-header__nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="billingDropdownMenu">
+                          Content
+                        </a>
+  
+                        <ul id="billingDropdownMenu" class="hs-sub-menu u-header__sub-menu u-header__sub-menu--spacer" style="min-width: 230px;" aria-labelledby="billingDropdown">
+                          <li><a class="nav-link u-header__sub-menu-nav-link" href="{% url 'dstudy_notes' %}">Dstudy Notes</a></li>
+                          <li><a class="nav-link u-header__sub-menu-nav-link" href="{% url 'student_notes' %}">Notes By Students </a></li>
+                        </ul>
+                      </li>
+                      <!-- Billing -->
+  
+                      <!-- Accessibility -->
+                      <li class="nav-item hs-has-sub-menu u-header__nav-item"
+                          data-event="hover"
+                          data-animation-in="slideInUp"
+                          data-animation-out="fadeOut">
+                        <a id="accessibilityDropdown" class="nav-link u-header__nav-link u-header__nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="accessibilityDropdownMenu">
+                          College
+                        </a>
+  
+                        <ul id="accessibilityDropdownMenu" class="hs-sub-menu u-header__sub-menu u-header__sub-menu--spacer" style="min-width: 230px;" aria-labelledby="accessibilityDropdown">
+                          <li><a class="nav-link u-header__sub-menu-nav-link" href="{% url 'exams' %}">Exams</a></li>
+                          <li><a class="nav-link u-header__sub-menu-nav-link" href="{% url 'college_notes' %}">College Notes</a></li>
+                          <li><a class="nav-link u-header__sub-menu-nav-link" href="{% url 'progress' %}">Progress</a></li>
+                          <li><a class="nav-link u-header__sub-menu-nav-link" href="{% url 'attendance' %}">Attendance</a></li>
+                        </ul>
+                      </li>
+                      <!-- Accessibility -->
+  
+                      <!-- Others -->
+                      <li class="nav-item u-header__nav-item">
+                        <a class="nav-link u-header__nav-link" href="{% url 'courses' %}">Courses</a>
+                      </li>
+                      <!-- Others -->
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </div>
+            <!-- End Navbar -->
+  
+            <div class="ml-lg-auto">
+              <!-- Button -->
+              <a class="btn btn-sm btn-soft-white transition-3d-hover" href="#requestPaymentModal"
+                 data-modal-target="#requestPaymentModal">
+                <span class="fas fa-plus small mr-2"></span>
+                Add Notes
+              </a>
+              <!-- End Button -->
+            </div>
+          </div>
+        </div>
+      </div>
+      {% block content %}
+           Dash Board Content
+      {% endblock%}
+    </main>
+
+
+    #### login views
+
+
+    <div class="col-lg-5 col-xl-4 d-none d-lg-flex align-items-center gradient-half-primary-v1 height-lg-100vh px-0" hidden="hidden">
+        <div class="w-100 p-5">
+         <!-- SVG Quote -->
+          <figure class="text-center mb-5 mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+               viewBox="0 0 8 8" style="enable-background:new 0 0 8 8;" xml:space="preserve">
+              <path class="fill-white" d="M3,1.3C2,1.7,1.2,2.7,1.2,3.6c0,0.2,0,0.4,0.1,0.5c0.2-0.2,0.5-0.3,0.9-0.3c0.8,0,1.5,0.6,1.5,1.5c0,0.9-0.7,1.5-1.5,1.5
+                C1.4,6.9,1,6.6,0.7,6.1C0.4,5.6,0.3,4.9,0.3,4.5c0-1.6,0.8-2.9,2.5-3.7L3,1.3z M7.1,1.3c-1,0.4-1.8,1.4-1.8,2.3
+                c0,0.2,0,0.4,0.1,0.5c0.2-0.2,0.5-0.3,0.9-0.3c0.8,0,1.5,0.6,1.5,1.5c0,0.9-0.7,1.5-1.5,1.5c-0.7,0-1.1-0.3-1.4-0.8
+                C4.4,5.6,4.4,4.9,4.4,4.5c0-1.6,0.8-2.9,2.5-3.7L7.1,1.3z"/>
+            </svg>
+          </figure>
+          <!-- End SVG Quote -->
+
+          <!-- Testimonials Carousel Main -->
+          <div id="testimonialsNavMain" class="js-slick-carousel u-slick mb-4"
+               data-infinite="true"
+               data-autoplay="true"
+               data-speed="5000"
+               data-fade="true"
+               data-nav-for="#testimonialsNavPagination">
+            <div class="js-slide">
+              <!-- Testimonials -->
+              <div class="w-md-80 w-lg-60 text-center mx-auto">
+                <blockquote class="h5 text-white font-weight-normal mb-4">Thank you!</blockquote>
+                <h1 class="h6 text-white-70">Prathmesh Sathe, Nashik</h1>
+              </div>
+              <!-- End Testimonials -->
+            </div>
+
+            <div class="js-slide">
+              <!-- Testimonials -->
+              <div class="w-md-80 w-lg-60 text-center mx-auto">
+                <blockquote class="h5 text-white font-weight-normal mb-4">It's beautiful and the coding is done quickly and seamlessly. Keep it up!</blockquote>
+                <h2 class="h6 text-white-70">Harshwardhan Sonawane, Pune</h2>
+              </div>
+              <!-- End Testimonials -->
+            </div>
+
+            <div class="js-slide">
+              <!-- Testimonials -->
+              <div class="w-md-80 w-lg-60 text-center mx-auto">
+                <blockquote class="h5 text-white font-weight-normal mb-4">Some Quote</blockquote>
+                <h3 class="h6 text-white-70">Prasad Birari, Nashik</h3>
+              </div>
+              <!-- End Testimonials -->
+            </div>
+          </div>
+          <!-- End Testimonials Carousel Main -->
+
+          <!-- Testimonials Carousel Pagination -->
+          <div id="testimonialsNavPagination" class="js-slick-carousel u-slick u-slick--transform-off u-slick--pagination-modern mx-auto"
+               data-infinite="true"
+               data-autoplay="true"
+               data-speed="5000"
+               data-center-mode="true"
+               data-slides-show="3"
+               data-is-thumbs="true"
+               data-focus-on-select="true"
+               data-nav-for="#testimonialsNavMain">
+            <div class="js-slide">
+              <div class="u-avatar mx-auto">
+                <img class="img-fluid rounded-circle" src="{% static 'img/uploads/info_helpdesk.png' %}" alt="Image Description">
+              </div>
+            </div>
+
+            <div class="js-slide">
+              <div class="u-avatar mx-auto">
+                <img class="img-fluid rounded-circle" src="{% static 'img/uploads/info_helpdesk.png' %}" alt="Image Description">
+              </div>
+            </div>
+
+            <div class="js-slide">
+              <div class="u-avatar mx-auto">
+                <img class="img-fluid rounded-circle" src="{% static 'img/uploads/info_helpdesk.png' %}" alt="Image Description">
+              </div>
+            </div>
+          </div>
+          <!-- End Testimonials Carousel Pagination -->
+
+          <!-- Clients -->
+          <div class="position-absolute right-0 bottom-0 left-0 text-center p-5">
+            <h4 class="h6 text-white-70 mb-3">Dstudy by Dream Designers</h4>
+            <div class="d-flex justify-content-center">
+              <div class="mx-4">
+                <img class="u-clients" src="{% static 'img/uploads/logo.png' %}" alt="Image Description">
+              </div>
+            </div>
+          </div>
+          <!-- End Clients -->
+        </div>
+      </div>

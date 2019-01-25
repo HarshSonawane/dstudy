@@ -1,0 +1,268 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block content %}
+<main id="content" role="main">
+        
+        <div id="SVGwave1BottomSMShape" class="svg-preloader">
+                <!-- CTA Section -->
+                <div class="bg-light">
+                  <div class="container space-2 space-md-3">
+                    <div class="w-md-80 w-lg-50 text-center mx-md-auto">
+                      <div class="mb-4">
+                        <span class="btn btn-lg btn-icon btn-white shadow-sm text-primary rounded-circle">
+                          <span class="btn-icon__inner">
+                            <img src="{% static 'img/uploads/logo.png' %}" alt="Logo" style="width: 70px;">
+                          </span>
+                        </span>
+                      </div>
+          
+                      <div class="mb-4">
+                        <h2 class="text-primary">
+                          <strong class="font-weight-semi-bold">A INITIATIVE OF <u>DREAM DESIGNERS</u> !</strong> 
+                        </h2>
+                        <p>Dstudy helps you learn what is needed.</p>
+                      </div>
+                      {% if user.is_authenticated %}
+                        <a class="btn btn-primary btn-wide btn-pill transition-3d-hover" href="#next">See More</a>
+                      {% else %}
+                      <a class="btn btn-primary btn-wide btn-pill transition-3d-hover" href="#">Get Started</a>
+                      {% endif %}
+                      
+                    </div>
+                  </div>
+                </div>
+                <!-- End CTA Section -->
+          
+                <!-- SVG Bottom Shape -->
+                <figure class="position-absolute right-0 bottom-0 left-0" hidden="hidden">
+                  <img class="js-svg-injector" src="{% static 'img/uploads/bg_wave.png' %}" alt="Image Description"
+                         data-parent="#SVGwave1BottomSMShape" width="100%" height="140" >
+                </figure>
+                <!-- End SVG Bottom Shape -->
+              </div>
+        <!-- Video Section -->
+        <div id="next" class="container space-top-2 space-top-md-3" hidden="hidden">
+          <!-- Title -->
+          <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-9">
+            <span class="btn btn-xs btn-soft-success btn-pill mb-2">What We Do?</span>
+            <h2 class="text-primary"><strong class="font-weight-semi-bold">Enjoyable</strong> usage</h2>
+            <p>Experience a level of our quality in both design &amp; customization works.</p>
+          </div>
+          <!-- End Title -->
+    
+          <div class="row justify-content-sm-center">
+            <div class="col-lg-9 col-xl-8">
+              <!-- Video Block -->
+              <div id="youTubeVideoPlayer" class="u-video-player mb-5">
+                <!-- Cover Image -->
+                <img class="img-fluid u-video-player__preview" src="{% static '/img/900x450/img2.jpg' %}" alt="Image">
+                <!-- End Cover Image -->
+    
+                <!-- Play Button -->
+                <a class="js-inline-video-player u-video-player__btn u-video-player__centered" href="javascript:;"
+                   data-parent="youTubeVideoPlayer"
+                   data-target="youTubeVideoIframe"
+                   data-classes="u-video-player__played">
+                  <span class="u-video-player__icon u-video-player__icon--lg text-primary">
+                    <span class="fas fa-play u-video-player__icon-inner"></span>
+                  </span>
+                </a>
+                <!-- End Play Button -->
+    
+                <!-- Video Iframe -->
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe id="youTubeVideoIframe" class="embed-responsive-item" src="http://www.youtube.com/embed/0qisGSwZym4"></iframe>
+                </div>
+                <!-- End Video Iframe -->
+              </div>
+              <!-- End Video Block -->
+            </div>
+          </div>
+        </div>
+        <!-- End Video Section -->
+    
+        <!-- Icon Blocks Section -->
+        <div class="container space-2 space-md-3">
+          <div class="row">
+            <div class="col-lg-6 mb-7 mb-lg-0">
+              <div class="media d-block d-sm-flex pr-md-4">
+                <!-- SVG Icon -->
+                <figure id="SVGinnovation" class="svg-preloader w-40 mr-4 mb-4 mb-sm-0">
+                  <img class="js-svg-injector" src="{% static 'img/uploads/innovation.png' %}" alt="Image Description"
+                       data-parent="#SVGinnovation">
+                </figure>
+                <!-- End SVG Icon -->
+    
+                <div class="media-body">
+                  <h3 class="h5">Dstudy Stratergies</h3>
+                  <p class="mb-1">We at Dstudy working with some professionals in technology, to provide students a path for their bright future.</p>
+                  <a class="font-size-1" href="#" hidden="hidden">Read More <span class="fas fa-angle-right align-middle ml-2"></span></a>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-lg-6">
+              <div class="media d-block d-sm-flex pr-md-4">
+                <!-- SVG Icon -->
+                <figure id="SVGpowerTools" class="svg-preloader w-40 mr-4 mb-4 mb-sm-0">
+                  <img class="js-svg-injector" src="{% static 'img/uploads/power-tools.png' %}" alt="Image Description"
+                       data-parent="#SVGpowerTools">
+                </figure>
+                <!-- End SVG Icon -->
+    
+                <div class="media-body">
+                  <h3 class="h5">Powerful Tools</h3>
+                  <p class="mb-1">Dstudy will provide powerful platforms for students to organize their study resourses in more efficient way.</p>
+                  <a class="font-size-1" href="#" hidden="hidden">Read More <span class="fas fa-angle-right align-middle ml-2"></span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Icon Blocks Section -->
+    
+        <!-- Subscribe Section -->
+        <div id="SVGsubscribe" class="svg-preloader gradient-half-primary-v1">
+          <div class="container space-2">
+            <div class="row justify-content-lg-end align-items-lg-center">
+              <div class="col-lg-7 mb-7 mb-lg-0">
+                <!-- SVG Icon -->
+                <figure class="ie-subscribe-illustration">
+                  <img class="js-svg-injector" src="{% static 'img/uploads/subscribe.png' %}" alt="Image Description"
+                       data-parent="#SVGsubscribe">
+                </figure>
+                <!-- End SVG Icon -->
+              </div>
+    
+              <div class="col-lg-5">
+                <div class="pl-lg-4">
+                  <!-- Title -->
+                  <div class="mb-5">
+                    <h2 class="text-white">
+                      <strong class="font-weight-semi-bold">Dstudy </strong> what's new
+                    </h2>
+                    <p class="text-white-70">Subscribe now and get updates of all the digital and technical stuff which is added to dstudy or being hosted by dstudy .</p>
+                  </div>
+                  <!-- End Title -->
+    
+                  <!-- Subscribe Form -->
+                  <form class="js-validate">
+                    <label class="sr-only" for="heroSubscribeSrEmail">Your email address</label>
+                    <div class="input-group input-group-lg input-group-borderless input-group-pill">
+                      <input type="email" class="form-control" name="email" id="heroSubscribeSrEmail" placeholder="Your email address" aria-label="Your email address" aria-describedby="heroSubscribeButton" required>
+                      <div class="input-group-append">
+                        <button class="btn btn-white text-primary" type="button" id="heroSubscribeButton">
+                          <span class="fas fa-paper-plane"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                  <!-- End Subscribe Form -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Subscribe Section -->
+        <!-- Features Section -->
+    <div id="SVGelements" class="svg-preloader">
+            <!-- SVG Background -->
+            <figure class="position-absolute right-0 bottom-0 left-0">
+              <img class="js-svg-injector" src="{% static 'img/uploads/bg_wave.png' %}" width="100%" height="140" alt="Image Description"
+                   data-parent="#SVGelements">
+            </figure>
+            <!-- End SVG Background -->
+      
+            <div class="gradient-half-primary-v3">
+              <div class="container space-top-2 space-top-md-3">
+                <div class="row align-items-start">
+                  <div class="col-lg-5 mb-7 mb-lg-0">
+                    <!-- Title -->
+                    <div class="pr-md-4 mb-4">
+                      <h2 class="text-primary">what's <span class="font-weight-semi-bold">Dstudy</span></h2>
+                      <p>Platform  to democratize education through the offering of video tutorials , model question papers , reference books of reputed authors. Virtually anyone who is a student  can access and utilize the resources and improve their knowledge.</p>
+                    </div>
+                    <!-- End Title -->
+                  </div>
+      
+                  <div class="col-lg-7 mt-auto">
+                    <!-- SVG Icon -->
+                    <figure class="ie-app-development">
+                      <img class="js-svg-injector" src="{% static 'img/uploads/develope.png' %}" alt="SVG Illustration"
+                           data-parent="#SVGelements">
+                    </figure>
+                    <!-- End SVG Icon -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Features Section -->
+      </main>
+{% endblock %}
+{% block secondary %}
+  <!-- Go to Top -->
+  <a class="js-go-to u-go-to" href="#"
+  data-position='{"bottom": 15, "right": 15 }'
+  data-type="fixed"
+  data-offset-top="400"
+  data-compensation="#header"
+  data-show-effect="slideInUp"
+  data-hide-effect="slideOutDown">
+  <span class="fas fa-arrow-up u-go-to__inner"></span>
+</a>
+<!-- JS Plugins Init. -->
+<script>
+        $(window).on('load', function () {
+          // initialization of HSMegaMenu component
+          $('.js-mega-menu').HSMegaMenu({
+            event: 'hover',
+            pageContainer: $('.container'),
+            breakpoint: 767.98,
+            hideTimeOut: 0
+          });
+    
+          // initialization of svg injector module
+          $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
+        });
+    
+        $(document).on('ready', function () {
+          // initialization of header
+          $.HSCore.components.HSHeader.init($('#header'));
+    
+          // initialization of unfold component
+          $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+            afterOpen: function () {
+              $(this).find('input[type="search"]').focus();
+            }
+          });
+    
+          // initialization of malihu scrollbar
+          $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+    
+          // initialization of show animations
+          $.HSCore.components.HSShowAnimation.init('.js-animation-link');
+    
+          // initialization of form validation
+          $.HSCore.components.HSValidation.init('.js-validate', {
+            rules: {
+              confirmPassword: {
+                equalTo: '#signupPassword'
+              }
+            }
+          });
+    
+          // initialization of forms
+          $.HSCore.components.HSFocusState.init();
+    
+          // initialization of slick carousel
+          $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+    
+          // initialization of video player
+          $.HSCore.components.HSVideoPlayer.init('.js-inline-video-player');
+    
+          // initialization of go to
+          $.HSCore.components.HSGoTo.init('.js-go-to');
+        });
+      </script>
+{% endblock %}

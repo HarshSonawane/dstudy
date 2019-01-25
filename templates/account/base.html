@@ -1,0 +1,82 @@
+{% load static %}
+{% include "partials/css.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load socialaccount %}
+<!-- ========== HEADER ========== -->
+<header id="header" class="u-header u-header--bg-transparent u-header--abs-top">
+    <div class="u-header__section">
+      <div id="logoAndNav" class="container-fluid">
+        <!-- Nav -->
+        <nav class="navbar navbar-expand u-header__navbar">
+          <!-- White Logo -->
+          <a class="d-none d-lg-flex navbar-brand u-header__navbar-brand u-header__navbar-brand-center u-header__navbar-brand-text-white" href="{% url 'main_index' %}" aria-label="Front">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="46px" height="46px" viewBox="0 0 46 46" xml:space="preserve" style="margin-bottom: 0;">
+
+            </svg>
+            <span class="u-header__navbar-brand-text">Dstudy</span>
+          </a>
+          <!-- End White Logo -->
+
+          <!-- Default Logo -->
+          <a class="d-flex d-lg-none navbar-brand u-header__navbar-brand u-header__navbar-brand-center u-header__navbar-brand-collapsed" href="index.html" aria-label="Front">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="46px" height="46px" viewBox="0 0 46 46" xml:space="preserve" style="margin-bottom: 0;">
+
+            </svg>
+            <span class="d-inline-block u-header__navbar-brand-text">Dstudy</span>
+          </a>
+          <!-- End Default Logo -->
+
+          <!-- Button -->
+          <div class="ml-auto">
+            <a class="btn btn-sm btn-primary transition-3d-hover" href="{% url 'main_index' %}">
+              Go Back
+            </a>
+          </div>
+          <!-- End Button -->
+        </nav>
+        <!-- End Nav -->
+      </div>
+    </div>
+  </header>
+  <!-- ========== END HEADER ========== -->
+
+{% for error in field.errors %}
+
+                      <!-- Alert Info -->
+  <div class="alert bg-primary text-white text-center font-size-1 rounded-0 mb-0" role="alert">
+    Error Occured <a class="font-weight-semi-bold link-white" href="#">{{ error }}</a>
+  </div>
+                  {% endfor %}
+
+  <!-- ========== MAIN ========== -->
+  <main id="content" role="main">
+    <!-- Form -->
+     <div class="d-flex align-items-center position-relative height-lg-100vh">
+      
+
+      
+
+      {% block content%}
+
+      {% endblock%}
+
+      
+      </div>
+    </div>
+    <!-- End Form -->
+  </main>
+  <!-- ========== END MAIN ========== -->
+{% include "partials/js.html" %}
+<!-- JS Plugins Init. -->
+  <script>
+    $(document).on('ready', function () {
+      // initialization of slick carousel
+      $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+
+      // initialization of form validation
+      $.HSCore.components.HSValidation.init('.js-validate');
+    });
+  </script>
+
+

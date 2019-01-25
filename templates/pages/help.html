@@ -1,0 +1,327 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block content %}
+<main id="content" role="main">
+    <!-- Hero Section -->
+    <div id="SVGknowledgebaseCommunity" class="svg-preloader bg-light">
+      <div class="container">
+        <div class="row justify-content-md-between">
+          <div class="col-md-6 space-2 space-bottom-lg-3 space-top-md-5">
+            <div class="mb-5">
+              <h1 class="font-weight-medium">How can we help?</h1>
+            </div>
+
+            <!-- Input -->
+            <form class="js-focus-state input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="askQuestions">
+                  <span class="fas fa-search"></span>
+                </span>
+              </div>
+              <input type="search" class="form-control" placeholder="Search the knowledge base..." aria-label="Search the knowledge base..." aria-describedby="askQuestions">
+            </form>
+            <!-- End Input -->
+
+            <!-- Text/Links -->
+            <p class="font-size-1 text-dark">
+              Popular help topics:
+              <a class="link-muted" href="#">accounts,</a>
+              <a class="link-muted ml-1" href="#">courses,</a>
+              <a class="link-muted ml-1" href="#">college,</a>
+              <a class="link-muted ml-1" href="#">profile updates</a>
+            </p>
+            <!-- End Text/Links -->
+          </div>
+
+          <div class="col-md-5 align-self-md-end d-none d-md-inline-block">
+            <!-- SVG Icon -->
+            <figure class="ie-knowledgebase-community mb-n3">
+              <img class="js-svg-injector" src="{% static 'img/uploads/help_bg.png' %}" alt="Image Description"
+                   data-parent="#SVGknowledgebaseCommunity">
+            </figure>
+            <!-- End SVG Icon -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Hero Section -->
+
+    <!-- FAQ Section -->
+    <div class="container">
+      <div class="border-bottom space-2 space-md-3">
+        <div class="card-deck d-block d-lg-flex card-lg-gutters-2 mb-3">
+          <a class="card card-frame mb-3 mb-lg-0" href="help-article.html">
+            <div class="card-body p-4">
+              <!-- Icon Block -->
+              <div class="media">
+                <figure id="icon1" class="svg-preloader ie-height-56 w-100 max-width-8 mr-4">
+                  <img class="js-svg-injector" src="{% static 'img/uploads/getting_start.png' %}" alt="SVG"
+                       data-parent="#icon1" height="60px" width="60px">
+                </figure>
+                <div class="media-body">
+                  <h2 class="h5">Getting started</h2>
+                  <p class="font-size-1">Welcome to Dstudy! We're so glad you're here. Let's get started!</p>
+
+                  <div class="media">
+                    <!-- Contributors List -->
+                    <ul class="list-inline mr-2 mb-0">
+                      <li class="list-inline-item mr-0">
+                        <div class="u-sm-avatar u-sm-avatar--bordered rounded-circle">
+                          <img class="img-fluid rounded-circle" src="{% static 'img/uploads/user.png' %}" alt="">
+                        </div>
+                      </li>
+                      <li class="list-inline-item ml-n3 mr-0">
+                        <div class="u-sm-avatar u-sm-avatar--bordered rounded-circle">
+                          <img class="img-fluid rounded-circle" src="{% static 'img/uploads/user.png' %}" alt="">
+                        </div>
+                      </li>
+                    </ul>
+                    <!-- End Contributors List -->
+
+                    <div class="media-body">
+                      <!-- Article Authors -->
+                      <small class="d-block text-dark">1 article in this collection</small>
+                      <small class="d-block text-dark">
+                        <span class="text-muted">Written by</span>
+                        Dstudy Admin
+                        <span class="text-muted">and</span>
+                        Taem Dstudy
+                      </small>
+                      <!-- End Article Authors -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End Icon Block -->
+            </div>
+          </a>
+
+          <a class="card card-frame" href="help-article.html">
+            <div class="card-body p-4">
+              <!-- Icon Block -->
+              <div class="media">
+                <figure id="icon46" class="svg-preloader ie-height-56 w-100 max-width-8 mr-4">
+                  <img class="js-svg-injector" src="{% static 'img/uploads/account.png' %}" alt="SVG"
+                       data-parent="#icon46" width="60px" height="60px">
+                </figure>
+                <div class="media-body">
+                  <h3 class="h5">Account</h3>
+                  <p class="font-size-1">Adjust your profile and preferences to make Dstudy work just for you!</p>
+
+                  <div class="media">
+                    <!-- Contributors List -->
+                    <ul class="list-inline mr-2 mb-0">
+                      <li class="list-inline-item mr-0">
+                        <div class="u-sm-avatar u-sm-avatar--bordered rounded-circle">
+                          <img class="img-fluid rounded-circle" src="{% static 'img/uploads/user.png' %}" alt="Image Description">
+                        </div>
+                      </li>
+                      <li class="list-inline-item ml-n3 mr-0">
+                        <div class="u-sm-avatar u-sm-avatar--bordered rounded-circle">
+                          <img class="img-fluid rounded-circle" src="{% static 'img/uploads/user.png' %}" alt="Image Description">
+                        </div>
+                      </li>
+                    </ul>
+                    <!-- End Contributors List -->
+
+                    <div class="media-body">
+                      <!-- Article Authors -->
+                      <small class="d-block text-dark">1 article in this collection</small>
+                      <small class="d-block text-dark">
+                        <span class="text-muted">Written by</span>
+                        Dstudy Admin
+                        <span class="text-muted">and</span>
+                        Taem Dstudy
+                      </small>
+                      <!-- End Article Authors -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End Icon Block -->
+            </div>
+          </a>
+        </div>
+
+        
+      </div>
+    </div>
+    <!-- End FAQ Section -->
+
+    <!-- Featured Articles Section -->
+    <div class="container space-2 space-md-3">
+      <div class="row">
+        <div class="col-md-4 mb-5 mb-md-0">
+          <!-- SVG Icon -->
+          <figure id="icon21" class="svg-preloader ie-height-56 w-100 max-width-8 mb-4">
+            <img class="js-svg-injector" src="{% static 'img/uploads/upcomming_featured.png' %}" alt="SVG"
+                 data-parent="#icon21">
+          </figure>
+          <!-- End SVG Icon -->
+
+          <div class="mb-4">
+            <h3 class="h5 font-weight-medium">Featured articles ( Upcomming )</h3>
+          </div>
+
+          <ul class="list-unstyled">
+            <li class="pb-3"><a class="link-muted" href="help-article.html">What is Front? &nbsp; <small style="color:crimson">Will be available soon</small></a></li>
+            <li class="pb-3"><a class="link-muted" href="help-article.html">Getting started for workspace creators &nbsp;<small style="color:crimson">Will be available soon</small></a></li>
+            <li class="pb-3"><a class="link-muted" href="help-article.html">Edit your profile &nbsp; <small style="color:crimson">Will be available soon</small></a></li>
+            <li class="pb-3"><a class="link-muted" href="help-article.html">View and download invoices &nbsp; <small style="color:crimson">Will be available soon</small></a></li>
+            <li class="pb-3"><a href="#">See all</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4 mb-5 mb-md-0" hidden="hidden">
+          <!-- SVG Icon -->
+          <figure id="icon2" class="svg-preloader ie-height-56 w-100 max-width-8 mb-4">
+            <img class="js-svg-injector" src="https://htmlstream.com/preview/front-v2.1/assets/svg/icons/icon-2.svg" alt="SVG"
+                 data-parent="#icon2">
+          </figure>
+          <!-- End SVG Icon -->
+
+          <div class="mb-4">
+            <h3 class="h5 font-weight-medium">Most helpful articles</h3>
+          </div>
+
+          <ul class="list-unstyled">
+            <li class="pb-3"><a class="link-muted" href="help-article.html">Working in Front</a></li>
+            <li class="pb-3"><a class="link-muted" href="help-article.html">Delete a page</a></li>
+            <li class="pb-3"><a class="link-muted" href="help-article.html">Add an app to your workspace</a></li>
+            <li class="pb-3"><a class="link-muted" href="help-article.html">What is Item Support?</a></li>
+            <li class="pb-3"><a href="#">See all</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4" hidden="hidden">
+          <!-- SVG Icon -->
+          <figure id="icon4" class="svg-preloader ie-height-56 w-100 max-width-8 mb-4">
+            <img class="js-svg-injector" src="https://htmlstream.com/preview/front-v2.1/assets/svg/icons/icon-4.svg" alt="SVG"
+                 data-parent="#icon4">
+          </figure>
+          <!-- End SVG Icon -->
+
+          <div class="mb-4">
+            <h3 class="h5 font-weight-medium">Popular forum topics</h3>
+          </div>
+
+          <ul class="list-unstyled">
+            <li class="pb-3"><a class="link-muted" href="help-article.html">Getting started for new members</a></li>
+            <li class="pb-3"><a class="link-muted" href="help-article.html">Invite new members to your workspace</a></li>
+            <li class="pb-3"><a class="link-muted" href="help-article.html">Bundled Plugins</a></li>
+            <li class="pb-3"><a href="#">See all</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- End Featured Articles Section -->
+
+    <!-- Contacts Section -->
+    <div class="bg-light">
+      <div class="container space-2 space-md-3">
+        <div class="w-md-80 w-lg-50 text-center mx-md-auto">
+          <figure id="icon62" class="svg-preloader ie-height-72 w-100 max-width-10 mx-auto mb-6">
+            <img class="js-svg-injector" src="{% static 'img/uploads/help_desk.png' %}" alt="SVG"
+                 data-parent="#icon62">
+          </figure>
+
+          <div class="mb-5">
+            <h2 class="h3 font-weight-medium">Still no luck? We can help!</h2>
+          </div>
+
+          <div class="mb-4">
+            <a class="btn btn-primary transition-3d-hover" href="#">Submit a Request</a>
+          </div>
+
+          <p>Contact us and we'll get back to you as soon as possible.</p>
+        </div>
+      </div>
+    </div>
+    <!-- End Contacts Section -->
+  </main>
+{% endblock %}
+{% block secondary %}
+  <!-- Go to Top -->
+  <a class="js-go-to u-go-to" href="#"
+  data-position='{"bottom": 15, "right": 15 }'
+  data-type="fixed"
+  data-offset-top="400"
+  data-compensation="#header"
+  data-show-effect="slideInUp"
+  data-hide-effect="slideOutDown">
+  <span class="fas fa-arrow-up u-go-to__inner"></span>
+</a>
+<!-- End Go to Top -->
+  
+<!-- JS Plugins Init. -->
+<script>
+  $(window).on('load', function () {
+    // initialization of HSMegaMenu component
+    $('.js-mega-menu').HSMegaMenu({
+      event: 'hover',
+      pageContainer: $('.container'),
+      breakpoint: 767.98,
+      hideTimeOut: 0
+    });
+
+    // initialization of svg injector module
+    $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
+  });
+
+  $(document).on('ready', function () {
+    // initialization of header
+    $.HSCore.components.HSHeader.init($('#header'));
+
+    // initialization of unfold component
+    $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+      afterOpen: function () {
+        $(this).find('input[type="search"]').focus();
+      }
+    });
+
+    // initialization of malihu scrollbar
+    $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+
+    // initialization of forms
+    $.HSCore.components.HSFocusState.init();
+
+    // initialization of form validation
+    $.HSCore.components.HSValidation.init('.js-validate', {
+      rules: {
+        confirmPassword: {
+          equalTo: '#signupPassword'
+        }
+      }
+    });
+
+    // initialization of show animations
+    $.HSCore.components.HSShowAnimation.init('.js-animation-link');
+
+    // initialization of fancybox
+    $.HSCore.components.HSFancyBox.init('.js-fancybox');
+
+    // initialization of text animation (typing)
+    var typed = new Typed(".u-text-animation.u-text-animation--typing", {
+      strings: ["study resources.", "courses.", "easy tips."],
+      typeSpeed: 60,
+      loop: true,
+      backSpeed: 25,
+      backDelay: 1500
+    });
+
+    // initialization of slick carousel
+    $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+
+    // initialization of go to
+    $.HSCore.components.HSGoTo.init('.js-go-to');
+  });
+
+  setTimeout(fade_out, 5000);
+  function fade_out() {
+    $("#message").fadeOut().empty();
+  }
+
+  
+
+</script>
+{% endblock %}

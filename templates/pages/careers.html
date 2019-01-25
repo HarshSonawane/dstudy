@@ -1,0 +1,119 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block content %}
+  <!-- ========== MAIN ========== -->
+  <main id="content" role="main">
+    <!-- Hero Section -->
+    <div class="d-lg-flex">
+      <div class="container d-lg-flex align-items-lg-center min-height-lg-100vh space-top-4 space-bottom-2 space-lg-0">
+        <div class="w-100 mx-auto">
+          <!-- SVG Icon -->
+          <figure id="SVGmaintenanceMode" class="svg-preloader mb-5 ie-maintenance-mode">
+            <img class="js-svg-injector" src="{% static 'img/uploads/maintainance.png' %}" alt="Image Description"
+                 data-parent="#SVGmaintenanceMode">
+          </figure>
+          <!-- End SVG Icon -->
+
+          <div class="w-md-80 w-lg-50 text-center mx-md-auto">
+            <!-- Title -->
+            <div class="mb-5">
+              <h1 class="h2 font-weight-normal">We're just tuning up a few things.</h1>
+              <p>We apologize for the inconvenience but Dstudy is currently  under development.</p>
+            </div>
+            <!-- End Title -->
+
+            <a class="btn btn-primary transition-3d-hover" href="#">Check for Updates</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Hero Section -->
+  </main>
+  <!-- ========== END MAIN ========== -->
+
+{% endblock %}
+{% block secondary %}
+  <!-- Go to Top -->
+  <a class="js-go-to u-go-to" href="#"
+  data-position='{"bottom": 15, "right": 15 }'
+  data-type="fixed"
+  data-offset-top="400"
+  data-compensation="#header"
+  data-show-effect="slideInUp"
+  data-hide-effect="slideOutDown">
+  <span class="fas fa-arrow-up u-go-to__inner"></span>
+</a>
+<!-- End Go to Top -->
+  
+<!-- JS Plugins Init. -->
+<script>
+  $(window).on('load', function () {
+    // initialization of HSMegaMenu component
+    $('.js-mega-menu').HSMegaMenu({
+      event: 'hover',
+      pageContainer: $('.container'),
+      breakpoint: 767.98,
+      hideTimeOut: 0
+    });
+
+    // initialization of svg injector module
+    $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
+  });
+
+  $(document).on('ready', function () {
+    // initialization of header
+    $.HSCore.components.HSHeader.init($('#header'));
+
+    // initialization of unfold component
+    $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+      afterOpen: function () {
+        $(this).find('input[type="search"]').focus();
+      }
+    });
+
+    // initialization of malihu scrollbar
+    $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+
+    // initialization of forms
+    $.HSCore.components.HSFocusState.init();
+
+    // initialization of form validation
+    $.HSCore.components.HSValidation.init('.js-validate', {
+      rules: {
+        confirmPassword: {
+          equalTo: '#signupPassword'
+        }
+      }
+    });
+
+    // initialization of show animations
+    $.HSCore.components.HSShowAnimation.init('.js-animation-link');
+
+    // initialization of fancybox
+    $.HSCore.components.HSFancyBox.init('.js-fancybox');
+
+    // initialization of text animation (typing)
+    var typed = new Typed(".u-text-animation.u-text-animation--typing", {
+      strings: ["study resources.", "courses.", "easy tips."],
+      typeSpeed: 60,
+      loop: true,
+      backSpeed: 25,
+      backDelay: 1500
+    });
+
+    // initialization of slick carousel
+    $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+
+    // initialization of go to
+    $.HSCore.components.HSGoTo.init('.js-go-to');
+  });
+
+  setTimeout(fade_out, 5000);
+  function fade_out() {
+    $("#message").fadeOut().empty();
+  }
+
+  
+
+</script>
+{% endblock %}

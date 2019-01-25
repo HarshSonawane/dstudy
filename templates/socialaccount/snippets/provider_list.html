@@ -1,0 +1,21 @@
+{% load socialaccount %}
+{% include "css.html" %}
+{% get_providers as socialaccount_providers %}
+
+{% for provider in socialaccount_providers %}
+{% if provider.id == "openid" %}
+{% for brand in provider.get_brands %}
+<p></p>   
+                          <a title="{{brand.name}}" class="btn btn-block btn-sm btn-soft-{{provider.name}} transition-3d-hover mr-1" href="{% provider_login_url provider.id openid=brand.openid_url process=process %}">
+                            <span class="fab fa-{{provider.name}}-square mr-1"></span>
+                            {{provider.name}}
+                          </a>
+{% endfor %}
+{% endif %}
+<p></p>   
+<a title="{{brand.name}}" class="btn btn-block btn-sm btn-soft-{{provider.name}} transition-3d-hover mr-1" href="{% provider_login_url provider.id openid=brand.openid_url process=process %}">
+ <span class="fab fa-{{provider.name}}-square mr-1"></span>
+ {{provider.name}}
+  </a>
+
+{% endfor %}

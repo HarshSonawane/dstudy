@@ -1,0 +1,315 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block content %}
+<main id="content" role="main">
+        <!-- Hero Section -->
+        <div id="SVGheroSectionBg" class="svg-preloader position-relative gradient-half-primary-v3">
+          <div class="container space-2 space-top-md-5 space-top-lg-4">
+            <div class="row align-items-lg-center">
+              <div class="col-lg-5 mb-7 mb-lg-0">
+                <!-- Info -->
+                <h1 class="mb-4">We host the best <span class="text-primary font-weight-semi-bold">resources</span> for you.</h1>
+                <p>Dstudy is the platform where a student (specially with techincal background ) can get all required resourses at one place.</p>
+                <!-- End Info -->
+              </div>
+    
+              <div class="col-lg-7">
+                <!-- SVG Icon -->
+                <figure class="ie-we-have-an-idea">
+                  <img class="js-svg-injector" src="{% static 'img/uploads/we-have-an-idea.png' %}" alt="Image Description"
+                       data-parent="#SVGheroSectionBg">
+                </figure>
+                <!-- End SVG Icon -->
+              </div>
+            </div>
+          </div>
+    
+          <!-- SVG Background -->
+          <figure class="position-absolute right-0 bottom-0 left-0">
+            <img class="js-svg-injector" src="{% static 'img/uploads/bg_wave.png' %}" width="100%" height="140" alt="Image Description"
+                 data-parent="#SVGheroSectionBg">
+          </figure>
+          <!-- End SVG Background Section -->
+        </div>
+        <!-- End Hero Section -->
+    
+        <!-- Front for -->
+        <div class="container space-2 space-bottom-md-3">
+          <!-- Title -->
+          <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-9">
+            <span class="btn btn-xs btn-soft-success btn-pill mb-2">Dstudy</span>
+            <h2 class="text-primary font-weight-normal">Who is <span class="font-weight-semi-bold">Dstudy</span> for?</h2>
+            <p>All Student ( specially students belonging to the technical background ).</p>
+          </div>
+          <!-- End Title -->
+    
+          <div class="row align-items-lg-center">
+            <div class="col-lg-5 order-lg-2 mb-7 mb-lg-0">
+              <!-- Info -->
+              <div class="pl-lg-7">
+                <div class="mb-4">
+                  <h3 class="h5">Online Tutorials</h3>
+                  <p>we host the tutorials as per your academics requirements and which are best for your bright future in technology as students and tutors here are bellonging to technical background. </p>
+                </div>
+    
+                <!-- Link -->
+                <a class="card border-0 shadow-sm" href="{% url 'account_signup' %}">
+                  <div class="card-body p-4">
+                    <div class="media align-items-center">
+                      <div class="u-avatar mr-3">
+                        <img class="img-fluid rounded-circle" src="{% static '/img/uploads/img2.png' %}" alt="Image Description">
+                      </div>
+                      <span class="media-body">
+                        <span class="d-flex justify-content-between align-items-center font-weight-semi-bold">
+                          Get Started with Front <span class="fas fa-angle-right"></span>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </a>
+                <!-- End Link -->
+              </div>
+              <!-- End Info -->
+            </div>
+    
+            <div id="SVGchattingGirl" class="col-lg-7 order-lg-1 svg-preloader">
+              <!-- SVG Icon -->
+              <figure class="ie-chatting-girl">
+                <img class="js-svg-injector" src="{% static '/img/uploads/chatting.png' %}" alt="Image Description"
+                     data-parent="#SVGchattingGirl">
+              </figure>
+              <!-- End SVG Icon -->
+            </div>
+          </div>
+        </div>
+        <!-- End Front for -->
+    
+        <!-- Features Section -->
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 mb-7 mb-lg-0">
+              <div class="media d-block d-sm-flex pr-md-4">
+                <!-- SVG Icon -->
+                <figure id="SVGproject" class="svg-preloader w-40 mr-4 mb-4 mb-sm-0">
+                  <img class="js-svg-injector" src="{% static 'img/uploads/project.png' %}" alt="Image Description"
+                       data-parent="#SVGproject">
+                </figure>
+                <!-- End SVG Icon -->
+    
+                <div class="media-body">
+                  <h3 class="h5">Study Resources</h3>
+    
+                  <div class="d-flex">
+                    <!-- List -->
+                    <ul class="list-unstyled text-secondary font-size-1 mr-md-4">
+                      <li class="py-1">
+                        <span class="h6 text-primary mr-1">&#8226;</span>
+                        Quetion Papers
+                      </li>
+                      <li class="py-1">
+                        <span class="h6 text-primary mr-1">&#8226;</span>
+                        Model Answer Papers
+                      </li>
+                    </ul>
+                    <!-- End List -->
+    
+                    <!-- List -->
+                    <ul class="list-unstyled text-secondary font-size-1">
+                      <li class="py-1">
+                        <span class="h6 text-primary mr-1">&#8226;</span>
+                        Notes
+                      </li>
+                      <li class="py-1">
+                        <span class="h6 text-primary mr-1">&#8226;</span>
+                        Tutorials
+                      </li>
+                    </ul>
+                    <!-- End List -->
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-lg-6">
+              <div class="media d-block d-sm-flex pr-md-4">
+                <!-- SVG Icon -->
+                <figure id="SVGwebDesign" class="svg-preloader w-40 mr-4 mb-4 mb-sm-0">
+                  <img class="js-svg-injector" src="{% static 'img/uploads/design.png' %}" alt="Image Description"
+                       data-parent="#SVGwebDesign">
+                </figure>
+                <!-- End SVG Icon -->
+    
+                <div class="media-body">
+                  <h3 class="h5">Progress</h3>
+    
+                  <div class="d-flex">
+                    <!-- List -->
+                    <ul class="list-unstyled text-secondary font-size-1 mr-md-4">
+                      <li class="py-1">
+                        <span class="h6 text-primary mr-1">&#8226;</span>
+                        Exams
+                      </li>
+                      <li class="py-1">
+                        <span class="h6 text-primary mr-1">&#8226;</span>
+                        Mocks
+                      </li>
+                    </ul>
+                    <!-- End List -->
+    
+                    <!-- List -->
+                    <ul class="list-unstyled text-secondary font-size-1">
+                      <li class="py-1">
+                        <span class="h6 text-primary mr-1">&#8226;</span>
+                        Workshops
+                      </li>
+                      <li class="py-1">
+                        <span class="h6 text-primary mr-1">&#8226;</span>
+                        Seminars
+                      </li>
+                    </ul>
+                    <!-- End List -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Features Section -->
+    
+        <!-- About Section -->
+        <div class="container space-2 space-md-3">
+          <div class="row align-items-lg-center">
+            <div class="col-lg-5 mb-7 mb-lg-0">
+              <!-- Info -->
+              <div class="pr-lg-7">
+                <div class="mb-4">
+                  <h3 class="h5">Virtual Access</h3>
+                  <p>Virtual access to all the resources on the platform, so that they can be accessible from anywhere and any device.</p>
+                </div>
+    
+                <!-- Link -->
+                <a class="card border-0 shadow-sm" href="{% url 'account_signup' %}">
+                  <div class="card-body p-4">
+                    <div class="media align-items-center">
+                      <div class="u-avatar mr-3">
+                        <img class="img-fluid rounded-circle" src="{% static '/img/uploads/img2.png' %}" alt="Image Description">
+                      </div>
+                      <span class="media-body">
+                        <span class="d-flex justify-content-between align-items-center font-weight-semi-bold">
+                          Get Started with Front <span class="fas fa-angle-right"></span>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </a>
+                <!-- End Link -->
+              </div>
+              <!-- End Info -->
+            </div>
+    
+            <div id="SVGchattingBoy" class="col-lg-7 svg-preloader">
+              <!-- SVG Icon -->
+              <figure class="ie-chatting-boy">
+                <img class="js-svg-injector" src="{% static '/img/uploads/easyavailable.png' %}" alt="Image Description"
+                     data-parent="#SVGchattingBoy">
+              </figure>
+              <!-- End SVG Icon -->
+            </div>
+          </div>
+        </div>
+        <!-- End About Section -->
+  
+        <!-- Clients Section -->
+        <div class="container text-center space-bottom-2 space-bottom-md-3">
+          <h4 class="h6 text-secondary mb-3">A initiative of</h4>
+          <div class="d-flex justify-content-center">
+            <div class="mx-4">
+              <a href="http://ddsweb.in/"><img class="u-clients" src="{% static '/img/uploads/logo.png' %}" alt="Image Description"></a>
+            </div>
+          </div>
+        </div>
+        <!-- End Clients Section -->
+    
+        <!-- CTA Section -->
+        <div class="bg-primary text-white text-center">
+          <div class="container space-1">
+            <span class="h6 d-block d-lg-inline-block font-weight-light mb-lg-0">
+              <span class="font-weight-semi-bold">Dstudy </span> – the simplest and fastest way to enhance your skills.
+            </span>
+            {% if user.is_authenticated %}
+            <a class="btn btn-sm btn-white transition-3d-hover font-weight-normal ml-2" href="" disabled>Thank You for being with Dstudy</a>
+            {% else %}
+            <a class="btn btn-sm btn-white transition-3d-hover font-weight-normal ml-2" href="{% url 'account_signup' %}">Start Learning</a>
+            {% endif %}
+            
+          </div>
+        </div>
+        <!-- End CTA Section -->
+      </main>
+{% endblock %}
+{% block secondary %}
+  <!-- Go to Top -->
+  <a class="js-go-to u-go-to" href="#"
+  data-position='{"bottom": 15, "right": 15 }'
+  data-type="fixed"
+  data-offset-top="400"
+  data-compensation="#header"
+  data-show-effect="slideInUp"
+  data-hide-effect="slideOutDown">
+  <span class="fas fa-arrow-up u-go-to__inner"></span>
+</a>
+<!-- JS Plugins Init. -->
+<script>
+        $(window).on('load', function () {
+          // initialization of HSMegaMenu component
+          $('.js-mega-menu').HSMegaMenu({
+            event: 'hover',
+            pageContainer: $('.container'),
+            breakpoint: 767.98,
+            hideTimeOut: 0
+          });
+    
+          // initialization of svg injector module
+          $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
+        });
+    
+        $(document).on('ready', function () {
+          // initialization of header
+          $.HSCore.components.HSHeader.init($('#header'));
+    
+          // initialization of unfold component
+          $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+            afterOpen: function () {
+              $(this).find('input[type="search"]').focus();
+            }
+          });
+    
+          // initialization of malihu scrollbar
+          $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+    
+          // initialization of show animations
+          $.HSCore.components.HSShowAnimation.init('.js-animation-link');
+    
+          // initialization of form validation
+          $.HSCore.components.HSValidation.init('.js-validate', {
+            rules: {
+              confirmPassword: {
+                equalTo: '#signupPassword'
+              }
+            }
+          });
+    
+          // initialization of forms
+          $.HSCore.components.HSFocusState.init();
+    
+          // initialization of slick carousel
+          $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+    
+          // initialization of video player
+          $.HSCore.components.HSVideoPlayer.init('.js-inline-video-player');
+    
+          // initialization of go to
+          $.HSCore.components.HSGoTo.init('.js-go-to');
+        });
+      </script>
+{% endblock %}

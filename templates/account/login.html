@@ -1,0 +1,82 @@
+{% extends 'account/base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load socialaccount %}
+{% block content %}
+<div class="container">
+    <div class="row no-gutters">
+      <div class="col-md-8 col-lg-7 col-xl-6 offset-md-2 offset-lg-2 offset-xl-3 space-3 space-lg-0">
+        
+        <!-- Form -->
+        <form class="js-validate mt-5" method='POST' action="{% url 'account_login' %}">{% csrf_token %}
+          <!-- Title -->
+          <div class="mb-7">
+            <h1 class="h3 text-primary font-weight-normal mb-0">Welcome to <span class="font-weight-semi-bold">Dstudy</span></h1>
+            <p>Fill out the form to get started.</p>
+          </div>
+          <!-- End Title -->
+
+          {% csrf_token %}
+{{ form|crispy }}
+{% if redirect_field_value %}
+<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+{% endif %}
+         
+          <!-- Button -->
+          <div class="row align-items-center mb-5">
+            <div class="col-5 col-sm-6">
+              <span class="small text-muted">Don't have an account?</span>
+              <a class="small" href="{{ signup_url }}">Signup</a> <br>
+              {% url 'account_reset_password' as passwd_reset_url %} 
+              <span class="small text-muted">Forgot Password</span>
+              <a class="small" href="{{ passwd_reset_url }}">Reset</a>
+            </div>
+
+            <div class="col-7 col-sm-6 text-right">
+              <button type="submit" class="btn btn-primary transition-3d-hover">Proceed</button>
+            </div>
+          </div>
+
+          <!-- Login Buttons -->
+          <div class="d-flex">
+              {% get_providers as socialaccount_providers %}
+              {% for provider in socialaccount_providers %}
+              {% if provider.id == "openid" %}
+              {% for brand in provider.get_brands %}
+                      <p></p>   
+                      <a title="{{brand.name}}" class="btn btn-block btn-sm btn-soft-{{provider.name}} transition-3d-hover mr-1" href="{% provider_login_url provider.id openid=brand.openid_url process=process %}">
+                        <span class="fab fa-{{provider.name}}-square mr-1"></span>
+                        {{provider.name}}
+                      </a>
+                   
+              {% endfor %}
+              {% endif %}
+              <p></p> 
+                <a title="{{brand.name}}" class="btn btn-block btn-sm btn-soft-{{provider.name}} transition-3d-hover mr-1" href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">
+                  <span class="fab fa-{{provider.name}}-square mr-1"></span>
+                  {{provider.name}}
+                </a>
+              {% endfor %}
+              </div>
+          <!-- End Login Buttons -->
+          <!-- End Button -->
+        </form>
+      
+        <!-- End Form -->
+      </div>
+      
+      
+    </div>
+    </div>
+{% endblock %}
+
+<!-- JS Plugins Init. -->
+<script>
+    $(document).on('ready', function () {
+      // initialization of slick carousel
+      $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+
+      // initialization of form validation
+      $.HSCore.components.HSValidation.init('.js-validate');
+    });
+  </script>

@@ -1,0 +1,314 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block content %}
+<main id="content" role="main">
+    
+    <hr class="my-0">
+
+      <div class="bg-light">
+            <h3>&nbsp;</h3>
+        <div class="container space-2">
+          <div class="card">
+            <div class="card-header py-4 px-0 mx-4">
+              <!-- Activity Menu -->
+              <div class="row justify-content-sm-between align-items-sm-center">
+                <div class="col-md-5 col-lg-4 mb-2 mb-md-0">
+                    <!-- count  -->
+                    <div class="js-focus-state input-group input-group-sm">
+                        <div class="input-group-prepend">
+                        </div>
+                        <input type="email" class="form-control" placeholder="{{ subjects.count }} found" value="{{ subjects.count }} found" disabled>
+                      </div>
+                      <!-- End count -->
+                  <!-- Datepicker -->
+                  <div id="datepickerWrapper" class="js-focus-state u-datepicker w-auto input-group input-group-sm" hidden="hidden">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <span class="fas fa-calendar"></span>
+                      </span>
+                    </div>
+                    <input type="text" class="js-range-datepicker form-control bg-white rounded-right"
+                           data-rp-wrapper="#datepickerWrapper"
+                           data-rp-type="range"
+                           data-rp-date-format="d M Y"
+                           data-rp-default-date='["05 Jul 2018", "19 Jul 2018"]'
+                           data-rp-is-disable-future-dates="true">
+                  </div>
+                  <!-- End Datepicker -->
+                </div>
+  
+                <div class="col-md-6">
+                  <div class="d-flex">
+                    <div class="mr-2">
+                      <!-- Select -->
+                      <select id="datatableEntries" class="js-select selectpicker dropdown-select" data-width="fit" data-style="btn-soft-primary btn-sm">
+                        <option value="6">6 entries</option>
+                        <option value="12" selected>12 entries</option>
+                        <option value="18">18 entries</option>
+                        <option value="24">24 entries</option>
+                      </select>
+                      <!-- End Select -->
+                    </div>
+  
+                    <!-- Search -->
+                    <div class="js-focus-state input-group input-group-sm">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="searchActivities">
+                          <span class="fas fa-search"></span>
+                        </span>
+                      </div>
+                      <input id="datatableSearch" type="email" class="form-control" placeholder="Search subjects" aria-label="Search activities" aria-describedby="searchActivities">
+                    </div>
+                    <!-- End Search -->
+                  </div>
+                </div>
+              </div>
+              <!-- End Activity Menu -->
+            </div>
+  
+            <div class="card-body p-4">
+              <!-- Activity Table -->
+              <div class="table-responsive-md u-datatable">
+                <table class="js-datatable table table-borderless u-datatable__striped u-datatable__content u-datatable__trigger mb-5"
+                       data-dt-info="#datatableInfo"
+                       data-dt-search="#datatableSearch"
+                       data-dt-entries="#datatableEntries"
+                       data-dt-page-length="12"
+                       data-dt-is-responsive="false"
+                       data-dt-is-show-paging="true"
+                       data-dt-details-invoker=".js-datatabale-details"
+                       data-dt-select-all-control="#invoiceToggleAllCheckbox"
+  
+                       data-dt-pagination="datatablePagination"
+                       data-dt-pagination-classes="pagination mb-0"
+                       data-dt-pagination-items-classes="page-item"
+                       data-dt-pagination-links-classes="page-link"
+  
+                       data-dt-pagination-next-classes="page-item"
+                       data-dt-pagination-next-link-classes="page-link"
+                       data-dt-pagination-next-link-markup='<span aria-hidden="true">&raquo;</span>'
+  
+                       data-dt-pagination-prev-classes="page-item"
+                       data-dt-pagination-prev-link-classes="page-link"
+                       data-dt-pagination-prev-link-markup='<span aria-hidden="true">&laquo;</span>'>
+                  <thead>
+                    <tr class="text-uppercase font-size-1">
+                      <th scope="col">
+                        <div class="custom-control custom-checkbox d-flex align-items-center">
+                          <input type="checkbox" class="custom-control-input" id="invoiceToggleAllCheckbox">
+                          <label class="custom-control-label" for="invoiceToggleAllCheckbox">
+                            <span class="text-hide">Checkbox</span>
+                          </label>
+                        </div>
+                      </th>
+                      <th scope="col" class="font-weight-medium">
+                        <div class="d-flex justify-content-between align-items-center">
+                          CODE
+                          <div class="ml-2">
+                            <span class="fas fa-angle-up u-datatable__thead-icon"></span>
+                            <span class="fas fa-angle-down u-datatable__thead-icon"></span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="col" class="font-weight-medium">
+                        <div class="d-flex justify-content-between align-items-center">
+                          TITLE
+                          <div class="ml-2">
+                            <span class="fas fa-angle-up u-datatable__thead-icon"></span>
+                            <span class="fas fa-angle-down u-datatable__thead-icon"></span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="col" class="font-weight-medium">
+                        <div class="d-flex justify-content-between align-items-center">
+                            STUDY YEAR
+                          <div class="ml-2">
+                            <span class="fas fa-angle-up u-datatable__thead-icon"></span>
+                            <span class="fas fa-angle-down u-datatable__thead-icon"></span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="col" class="font-weight-medium">
+                        <div class="d-flex justify-content-between align-items-center">
+                          COURSE
+                          <div class="ml-2">
+                            <span class="fas fa-angle-up u-datatable__thead-icon"></span>
+                            <span class="fas fa-angle-down u-datatable__thead-icon"></span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="col" class="font-weight-medium">
+                            <div class="d-flex justify-content-between align-items-center">
+                              SYLLABUS
+                              <div class="ml-2">
+                                <span class="fas fa-angle-up u-datatable__thead-icon"></span>
+                                <span class="fas fa-angle-down u-datatable__thead-icon"></span>
+                              </div>
+                            </div>
+                          </th>
+                    </tr>
+                  </thead>
+                  <tbody class="font-size-1">
+                    {% for subject in subjects %}
+                    <tr class="js-datatabale-details">
+                    <td class="align-middle">
+                      <div class="custom-control custom-checkbox d-flex align-items-center">
+                        <input type="checkbox" class="custom-control-input" id="invoiceCheckbox01">
+                        <label class="custom-control-label" for="invoiceCheckbox01">
+                          <span class="text-hide">Checkbox</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td class="align-middle text-secondary font-weight-normal u-datatable__trigger-icon">{{ subject.code }}</td>
+                    <td class="align-middle">
+                      <div class="media align-items-center">
+                        <span class="btn btn-sm btn-icon btn-soft-success rounded-circle mr-2">
+                          <span class="btn-icon__inner font-weight-medium"></span>
+                        </span>
+                        <span>{{ subject.title }}</span>
+                      </div>
+                    </td>
+                    <td class="align-middle text-secondary">{{ subject.study_year }}</td>
+                    <td class="align-middle text-secondary">{{ subject.course }}</td>
+                    <td class="align-middle text-danger"><a href="{{ subject.syllabus.url }}" download="">Download</a></td>
+                  </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <!-- End Activity Table -->
+  
+              <!-- Pagination -->
+              <div class="d-flex justify-content-between align-items-center">
+                <nav id="datatablePagination" aria-label="Activity pagination"></nav>
+  
+                <small id="datatableInfo" class="text-secondary"></small>
+              </div>
+              <!-- End Pagination -->
+              {% if is_paginated %}
+          <!-- Pagination -->
+          <div class="d-flex justify-content-between align-items-center">
+              <nav aria-label="Page navigation">
+                <ul class="pagination mb-0">
+                    {% if page_obj.has_previous %}
+                    <li class="page-item ml-0">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                      </li>
+                    {% else %}
+                    <li class="page-item ml-0">
+                        <a class="page-link disabled" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                      </li>
+                    {% endif %}
+                    {% for i in paginator.page_range %}
+                      {% if page_obj.number == i %}
+                      <li class="page-item active"><a class="page-link" href="#">{{ i }} <span class="sr-only">(current)</span></a></li>
+                      {% else %}
+                      <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                      {% endif %}
+                    {% endfor %}
+                    {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link disabled" href="#" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </li>
+                    {% endif %}
+                </ul>
+              </nav>
+    
+              <small class="d-none d-sm-inline-block text-secondary">Showing 9 out of 52</small>
+            </div>
+            <!-- End Pagination -->
+          {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>  
+  </main>
+{% endblock %}
+{% block secondary %}
+  <!-- Go to Top -->
+  <a class="js-go-to u-go-to" href="#"
+  data-position='{"bottom": 15, "right": 15 }'
+  data-type="fixed"
+  data-offset-top="400"
+  data-compensation="#header"
+  data-show-effect="slideInUp"
+  data-hide-effect="slideOutDown">
+  <span class="fas fa-arrow-up u-go-to__inner"></span>
+</a>
+<!-- End Go to Top -->
+
+<script>
+        $(window).on('load', function () {
+          // initialization of HSMegaMenu component
+          $('.js-mega-menu').HSMegaMenu({
+            event: 'hover',
+            pageContainer: $('.container'),
+            breakpoint: 767.98,
+            hideTimeOut: 0
+          });
+    
+          // initialization of HSMegaMenu component
+          $('.js-breadcrumb-menu').HSMegaMenu({
+            event: 'hover',
+            pageContainer: $('.container'),
+            breakpoint: 991.98,
+            hideTimeOut: 0
+          });
+    
+          // initialization of svg injector module
+          $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
+        });
+    
+        $(document).on('ready', function () {
+          // initialization of header
+          $.HSCore.components.HSHeader.init($('#header'));
+    
+          // initialization of unfold component
+          $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+            afterOpen: function () {
+              $(this).find('input[type="search"]').focus();
+            }
+          });
+    
+          // initialization of malihu scrollbar
+          $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+    
+          // initialization of forms
+          $.HSCore.components.HSFocusState.init();
+    
+          // initialization of range datepicker
+          $.HSCore.components.HSRangeDatepicker.init('.js-range-datepicker');
+    
+          // initialization of datatables
+          $.HSCore.components.HSDatatables.init('.js-datatable');
+    
+          // initialization of select picker
+          $.HSCore.components.HSSelectPicker.init('.js-select');
+    
+          // initialization of go to
+          $.HSCore.components.HSGoTo.init('.js-go-to');
+        });
+
+        setTimeout(fade_out, 5000);
+        function fade_out() {
+            $("#message").fadeOut().empty();
+        }
+
+      </script>
+{% endblock %}

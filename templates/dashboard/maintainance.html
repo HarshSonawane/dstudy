@@ -1,0 +1,127 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block content %}
+<main id="content" role="main">
+    {% include 'dashboard/dashbase.html' %}
+    <!-- Hero Section -->
+    <div class="d-lg-flex">
+            <div class="container d-lg-flex align-items-lg-center min-height-lg-100vh space-top-4 space-bottom-2 space-lg-0">
+              <div class="w-100 mx-auto">
+                <!-- SVG Icon -->
+                <figure id="SVGmaintenanceMode" class="svg-preloader mb-5 ie-maintenance-mode">
+                  <img class="js-svg-injector" src="{% static 'img/uploads/maintainance.png' %}" alt="Image Description"
+                       data-parent="#SVGmaintenanceMode">
+                </figure>
+                <!-- End SVG Icon -->
+      
+                <div class="w-md-80 w-lg-50 text-center mx-md-auto">
+                  <!-- Title -->
+                  <div class="mb-5">
+                    <h1 class="h2 font-weight-normal">We're just tuning up a few things.</h1>
+                    <p>We apologize for the inconvenience but Dstudy is currently  under development.</p>
+                  </div>
+                  <!-- End Title -->
+      
+                  <a class="btn btn-primary transition-3d-hover" href="#">Check for Updates</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Hero Section -->
+  </main>
+{% endblock %}
+{% block secondary %}
+
+  <!-- Go to Top -->
+  <a class="js-go-to u-go-to" href="#"
+  data-position='{"bottom": 15, "right": 15 }'
+  data-type="fixed"
+  data-offset-top="400"
+  data-compensation="#header"
+  data-show-effect="slideInUp"
+  data-hide-effect="slideOutDown">
+  <span class="fas fa-arrow-up u-go-to__inner"></span>
+</a>
+<!-- End Go to Top -->
+  
+<!-- JS Plugins Init. -->
+<script>
+    $(window).on('load', function () {
+      // initialization of HSMegaMenu component
+      $('.js-mega-menu').HSMegaMenu({
+        event: 'hover',
+        pageContainer: $('.container'),
+        breakpoint: 767.98,
+        hideTimeOut: 0
+      });
+
+      // initialization of HSMegaMenu component
+      $('.js-breadcrumb-menu').HSMegaMenu({
+        event: 'hover',
+        pageContainer: $('.container'),
+        breakpoint: 991.98,
+        hideTimeOut: 0
+      });
+
+      // initialization of svg injector module
+      $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
+    });
+
+    $(document).on('ready', function () {
+      // initialization of header
+      $.HSCore.components.HSHeader.init($('#header'));
+
+      // initialization of unfold component
+      $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+        afterOpen: function () {
+          $(this).find('input[type="search"]').focus();
+        }
+      });
+
+      // initialization of malihu scrollbar
+      $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+
+      // initialization of forms
+      $.HSCore.components.HSFocusState.init();
+
+      // initialization of form validation
+      $.HSCore.components.HSValidation.init('.js-validate');
+
+      // initialization of autonomous popups
+      $.HSCore.components.HSModalWindow.init('[data-modal-target]', '.js-modal-window', {
+        autonomous: true
+      });
+
+      // initialization of step form
+      $.HSCore.components.HSStepForm.init('.js-step-form');
+
+      // initialization of show animations
+      $.HSCore.components.HSShowAnimation.init('.js-animation-link');
+
+      // initialization of range datepicker
+      $.HSCore.components.HSRangeDatepicker.init('.js-range-datepicker');
+
+      // initialization of chart pies
+      var items = $.HSCore.components.HSChartPie.init('.js-pie');
+
+      // initialization of horizontal progress bars
+      var horizontalProgressBars = $.HSCore.components.HSProgressBar.init('.js-hr-progress', {
+        direction: 'horizontal',
+        indicatorSelector: '.js-hr-progress-bar'
+      });
+
+      var verticalProgressBars = $.HSCore.components.HSProgressBar.init('.js-vr-progress', {
+        direction: 'vertical',
+        indicatorSelector: '.js-vr-progress-bar'
+      });
+
+      // initialization of go to
+      $.HSCore.components.HSGoTo.init('.js-go-to');
+    });
+
+    setTimeout(fade_out, 5000);
+    function fade_out() {
+            $("#message").fadeOut().empty();
+    }
+  </script>
+{% endblock %}
